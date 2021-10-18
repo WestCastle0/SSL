@@ -11,7 +11,8 @@ namespace SSFramework
 	public:
 		SSMatrix2();
 		SSMatrix2(const SSVector2& row1, const SSVector2& row2);
-		SSMatrix2(float e11, float e12, float e21, float e22);
+		SSMatrix2(float e11, float e12, 
+				  float e21, float e22);
 		
 		static const SSMatrix2 identity;
 

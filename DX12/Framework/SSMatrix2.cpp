@@ -56,37 +56,37 @@ float SSMatrix2::Determinant() const
 
 SSMatrix2 SSMatrix2::InverseMatrix(bool* r, float* d) const
 {
-	SSMatrix2 m;
+	SSMatrix2 n;
 	float det = Determinant();
 	bool result = false;
 
 	if (det != 0.0f)
 	{
 		float detInv = 1.0f / det;
-		m._11 = _22 * detInv;
-		m._12 = -1.0f * _12 * detInv;
-		m._21 = -1.0f * _21 * detInv;
-		m._22 = _11 * detInv;
+		n._11 = _22 * detInv;
+		n._12 = -1.0f * _12 * detInv;
+		n._21 = -1.0f * _21 * detInv;
+		n._22 = _11 * detInv;
 
 		result = true;
 		if (d)
 			*d = det;
 	}
 	else
-		m.SetIdentity();
+		n.SetIdentity();
 
 	if (r)
 		*r = result;
 
-	return m;
+	return n;
 }
 
 SSMatrix2& SSMatrix2::Inverse(bool* r, float* d)
 {
 	bool b;
-	SSMatrix2 m = this->InverseMatrix(&b, d);
+	SSMatrix2 n = this->InverseMatrix(&b, d);
 	if (b)
-		*this = m;
+		*this = n;
 	if (r)
 		*r = b;
 	return *this;
@@ -94,8 +94,8 @@ SSMatrix2& SSMatrix2::Inverse(bool* r, float* d)
 
 SSMatrix2 SSMatrix2::TransposeMatrix() const
 {
-	SSMatrix2 m(*this);
-	return m.Transpose();
+	SSMatrix2 n(*this);
+	return n.Transpose();
 }
 
 bool SSMatrix2::operator==(const SSMatrix2& m) const
@@ -193,7 +193,7 @@ SSMatrix2& SSMatrix2::operator*=(float f)
 	return *this;
 }
 
-SSMatrix2& SSFramework::SSMatrix2::operator/=(float f)
+SSMatrix2& SSMatrix2::operator/=(float f)
 {
 	float inv = 1.0f / f;
 	this->_11 *= inv;

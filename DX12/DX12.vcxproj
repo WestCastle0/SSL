@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\SSMatrix2.cpp" />
     <ClCompile Include="Framework\SSVector2.cpp" />
     <ClCompile Include="Framework\SSVector3.cpp" />
     <ClCompile Include="Framework\SSVector4.cpp" />
@@ -26,6 +27,7 @@
   <ItemGroup>
     <ClInclude Include="Foundation\SSObject.h" />
     <ClInclude Include="Framework\SSMath.h" />
+    <ClInclude Include="Framework\SSMatrix2.h" />
     <ClInclude Include="Framework\SSVector2.h" />
     <ClInclude Include="Framework\SSVector3.h" />
     <ClInclude Include="Framework\SSVector4.h" />

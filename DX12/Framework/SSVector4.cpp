@@ -108,6 +108,12 @@ SSVector4 SSFramework::operator*(float f, const SSVector4& v)
 	return SSVector4(f * v.x, f * v.y, f * v.z, f * v.w);
 }
 
+SSVector4 SSFramework::operator/(float f, const SSVector4& v)
+{
+	float inv = 1.0f / f;
+	return SSVector4(inv * v.x, inv * v.y, inv * v.z, inv * v.w);
+}
+
 SSVector4& SSVector4::operator+=(const SSVector4& v)
 {
 	x += v.x;

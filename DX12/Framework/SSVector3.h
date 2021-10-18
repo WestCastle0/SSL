@@ -31,6 +31,7 @@ namespace SSFramework
 		SSVector3 operator * (float f) const;
 		SSVector3 operator * (const SSVector3& v) const; //Dot
 		friend SSVector3 operator * (float f, const SSVector3& v);
+		friend SSVector3 operator / (float f, const SSVector3& v);
 
 		SSVector3& operator += (const SSVector3& v);
 		SSVector3& operator -= (const SSVector3& v);

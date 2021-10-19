@@ -17,14 +17,15 @@ SSMatrix4::SSMatrix4(const SSVector4& row1, const SSVector4& row2, const SSVecto
 	 _31(row3.x), _32(row3.y), _33(row3.z), _34(row3.w), 
 	 _41(row4.x), _42(row4.y), _43(row4.z), _44(row4.w){}
 
-SSMatrix4::SSMatrix4(float e11, float e12, float e13, float e14,
-					 float e21, float e22, float e23, float e24,
-					 float e31, float e32, float e33, float e34,
-					 float e41, float e42, float e43, float e44)
-					:_11(e11), _12(e12), _13(e13), _14(e14),
-					 _21(e21), _22(e22), _23(e23), _24(e24), 
-					 _31(e31), _32(e32), _33(e33), _34(e34), 
-					 _41(e41), _42(e42), _43(e43), _44(e44){}
+SSMatrix4::SSMatrix4(
+	float e11, float e12, float e13, float e14,
+	float e21, float e22, float e23, float e24,
+	float e31, float e32, float e33, float e34,
+	float e41, float e42, float e43, float e44)
+	:_11(e11), _12(e12), _13(e13), _14(e14),
+	 _21(e21), _22(e22), _23(e23), _24(e24), 
+	 _31(e31), _32(e32), _33(e33), _34(e34), 
+	 _41(e41), _42(e42), _43(e43), _44(e44){}
 
 SSMatrix4& SSMatrix4::SetIdentity()
 {
@@ -38,10 +39,11 @@ SSMatrix4& SSMatrix4::SetIdentity()
 
 bool SSMatrix4::IsIdentity() const
 {
-	return _11 == 1.0f && _12 == 0.0f && _13 == 0.0f && _14 == 0.0f &&
-		   _21 == 0.0f && _22 == 1.0f && _23 == 0.0f && _24 == 0.0f &&
-		   _31 == 0.0f && _32 == 0.0f && _33 == 1.0f && _34 == 0.0f &&
-		   _41 == 0.0f && _42 == 0.0f && _43 == 0.0f && _44 == 1.0f;
+	return 
+		_11 == 1.0f && _12 == 0.0f && _13 == 0.0f && _14 == 0.0f &&
+		_21 == 0.0f && _22 == 1.0f && _23 == 0.0f && _24 == 0.0f &&
+		_31 == 0.0f && _32 == 0.0f && _33 == 1.0f && _34 == 0.0f &&
+		_41 == 0.0f && _42 == 0.0f && _43 == 0.0f && _44 == 1.0f;
 }
 
 SSMatrix4& SSMatrix4::Transpose()
@@ -92,12 +94,13 @@ SSMatrix4& SSMatrix4::Multiply(const SSMatrix4& m)
 
 float SSMatrix4::Determinant() const
 {
-	return (_14 * _23 * _32 * _41) - (_13 * _24 * _32 * _41) - (_14 * _22 * _33 * _41) + (_12 * _24 * _33 * _41) + 
-		   (_13 * _22 * _34 * _41) - (_12 * _23 * _34 * _41) - (_14 * _23 * _31 * _42) + (_13 * _24 * _31 * _42) + 
-		   (_14 * _21 * _33 * _42) - (_11 * _24 * _33 * _42) - (_13 * _21 * _34 * _42) + (_11 * _23 * _34 * _42) +
-		   (_14 * _22 * _31 * _43) - (_12 * _24 * _31 * _43) - (_14 * _21 * _32 * _43) + (_11 * _24 * _32 * _43) + 
-		   (_12 * _21 * _34 * _43) - (_11 * _22 * _34 * _43) - (_13 * _22 * _31 * _44) + (_12 * _23 * _31 * _44) + 
-		   (_13 * _21 * _32 * _44) - (_11 * _23 * _32 * _44) - (_12 * _21 * _33 * _44) + (_11 * _22 * _33 * _44);
+	return 
+		(_14 * _23 * _32 * _41) - (_13 * _24 * _32 * _41) - (_14 * _22 * _33 * _41) + (_12 * _24 * _33 * _41) + 
+		(_13 * _22 * _34 * _41) - (_12 * _23 * _34 * _41) - (_14 * _23 * _31 * _42) + (_13 * _24 * _31 * _42) + 
+		(_14 * _21 * _33 * _42) - (_11 * _24 * _33 * _42) - (_13 * _21 * _34 * _42) + (_11 * _23 * _34 * _42) +
+		(_14 * _22 * _31 * _43) - (_12 * _24 * _31 * _43) - (_14 * _21 * _32 * _43) + (_11 * _24 * _32 * _43) + 
+		(_12 * _21 * _34 * _43) - (_11 * _22 * _34 * _43) - (_13 * _22 * _31 * _44) + (_12 * _23 * _31 * _44) + 
+		(_13 * _21 * _32 * _44) - (_11 * _23 * _32 * _44) - (_12 * _21 * _33 * _44) + (_11 * _22 * _33 * _44);
 }
 
 SSMatrix4 SSMatrix4::InverseMatrix(bool* r, float* d) const
@@ -158,42 +161,44 @@ SSMatrix4 SSMatrix4::TransposeMatrix() const
 
 bool SSMatrix4::operator==(const SSMatrix4& m) const
 {
-	return this->val[0x0] == m.val[0x0] &&
-		   this->val[0x1] == m.val[0x1] &&
-		   this->val[0x2] == m.val[0x2] &&
-		   this->val[0x3] == m.val[0x3] &&
-		   this->val[0x4] == m.val[0x4] &&
-		   this->val[0x5] == m.val[0x5] &&
-		   this->val[0x6] == m.val[0x6] &&
-		   this->val[0x7] == m.val[0x7] &&
-		   this->val[0x8] == m.val[0x8] &&
-		   this->val[0x9] == m.val[0x9] &&
-		   this->val[0xa] == m.val[0xa] &&
-		   this->val[0xb] == m.val[0xb] &&
-		   this->val[0xc] == m.val[0xc] &&
-		   this->val[0xd] == m.val[0xd] &&
-		   this->val[0xe] == m.val[0xe] &&
-		   this->val[0xf] == m.val[0xf];
+	return 
+		this->val[0x0] == m.val[0x0] &&
+		this->val[0x1] == m.val[0x1] &&
+		this->val[0x2] == m.val[0x2] &&
+		this->val[0x3] == m.val[0x3] &&
+		this->val[0x4] == m.val[0x4] &&
+		this->val[0x5] == m.val[0x5] &&
+		this->val[0x6] == m.val[0x6] &&
+		this->val[0x7] == m.val[0x7] &&
+		this->val[0x8] == m.val[0x8] &&
+		this->val[0x9] == m.val[0x9] &&
+		this->val[0xa] == m.val[0xa] &&
+		this->val[0xb] == m.val[0xb] &&
+		this->val[0xc] == m.val[0xc] &&
+		this->val[0xd] == m.val[0xd] &&
+		this->val[0xe] == m.val[0xe] &&
+		this->val[0xf] == m.val[0xf];
 }
 
 bool SSMatrix4::operator!=(const SSMatrix4& m) const
 {
-	return this->val[0x0] != m.val[0x0] ||
-		   this->val[0x1] != m.val[0x1] ||
-		   this->val[0x2] != m.val[0x2] ||
-		   this->val[0x3] != m.val[0x3] ||
-		   this->val[0x4] != m.val[0x4] ||
-		   this->val[0x5] != m.val[0x5] ||
-		   this->val[0x6] != m.val[0x6] ||
-		   this->val[0x7] != m.val[0x7] ||
-		   this->val[0x8] != m.val[0x8] ||
-		   this->val[0x9] != m.val[0x9] ||
-		   this->val[0xa] != m.val[0xa] ||
-		   this->val[0xb] != m.val[0xb] ||
-		   this->val[0xc] != m.val[0xc] ||
-		   this->val[0xd] != m.val[0xd] ||
-		   this->val[0xe] != m.val[0xe] ||
-		   this->val[0xf] != m.val[0xf];
+	return 
+		this->val[0x0] != m.val[0x0] ||
+		this->val[0x1] != m.val[0x1] ||
+		this->val[0x2] != m.val[0x2] ||
+		this->val[0x3] != m.val[0x3] ||
+		this->val[0x4] != m.val[0x4] ||
+		this->val[0x5] != m.val[0x5] ||
+		this->val[0x6] != m.val[0x6] ||
+		this->val[0x7] != m.val[0x7] ||
+		this->val[0x8] != m.val[0x8] ||
+		this->val[0x9] != m.val[0x9] ||
+		this->val[0xa] != m.val[0xa] ||
+		this->val[0xb] != m.val[0xb] ||
+		this->val[0xc] != m.val[0xc] ||
+		this->val[0xd] != m.val[0xd] ||
+		this->val[0xe] != m.val[0xe] ||
+		this->val[0xf] != m.val[0xf];
 }
 
 SSMatrix4 SSMatrix4::operator+(const SSMatrix4& m) const

@@ -1,3 +1,4 @@
+#include "SSMath.h"
 #include "SSLinearTransform2.h"
 
 using namespace SSFramework;
@@ -25,5 +26,10 @@ SSLinearTransform2::SSLinearTransform2(const SSMatrix2& m)
 
 SSLinearTransform2& SSLinearTransform2::Rotate(float angle)
 {
+	float cos = cosf(angle);
+	float sin = sinf(angle);
+
+	SSMatrix2 n(cos, sin, 
+				-sin, cos);
 	// TODO: 여기에 return 문을 삽입합니다.
 }

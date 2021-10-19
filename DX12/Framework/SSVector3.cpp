@@ -30,9 +30,10 @@ float SSVector3::Dot(const SSVector3& v1, const SSVector3& v2)
 
 SSVector3 SSVector3::Cross(const SSVector3& v1, const SSVector3& v2)
 {
-	return {v1.y * v2.z - v1.z * v2.y,
-			v1.z * v2.x - v1.x * v2.z,
-			v1.x * v2.y - v1.y * v2.x};
+	return 
+			{v1.y * v2.z - v1.z * v2.y,
+			 v1.z * v2.x - v1.x * v2.z,
+			 v1.x * v2.y - v1.y * v2.x};
 }
 
 float SSVector3::Length() const

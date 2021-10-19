@@ -26,8 +26,9 @@ SSMatrix2& SSMatrix2::SetIdentity()
 
 bool SSMatrix2::IsIdentity() const
 {
-	return _11 == 1.0f && _12 == 0.0f &&
-		   _21 == 0.0f && _22 == 1.0f;
+	return 
+		_11 == 1.0f && _12 == 0.0f &&
+		_21 == 0.0f && _22 == 1.0f;
 }
 
 SSMatrix2& SSMatrix2::Transpose()
@@ -100,14 +101,16 @@ SSMatrix2 SSMatrix2::TransposeMatrix() const
 
 bool SSMatrix2::operator==(const SSMatrix2& m) const
 {
-	return this->_11 == m._11 && this->_12 == m._12 &&
-		   this->_21 == m._21 && this->_22 == m._22;
+	return 
+		this->_11 == m._11 && this->_12 == m._12 &&
+		this->_21 == m._21 && this->_22 == m._22;
 }
 
 bool SSMatrix2::operator!=(const SSMatrix2& m) const
 {
-	return this->_11 != m._11 || this->_12 != m._12 &&
-		   this->_21 != m._21 || this->_22 != m._22;
+	return 
+		this->_11 != m._11 || this->_12 != m._12 &&
+		this->_21 != m._21 || this->_22 != m._22;
 }
 
 SSMatrix2 SSMatrix2::operator+(const SSMatrix2& m) const

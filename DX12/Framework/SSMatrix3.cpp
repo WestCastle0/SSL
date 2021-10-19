@@ -15,12 +15,13 @@ SSMatrix3::SSMatrix3(const SSVector3& row1, const SSVector3& row2, const SSVecto
 	  _21(row2.x), _22(row2.y), _23(row2.z),
 	  _31(row3.x), _32(row3.y), _33(row3.z){}
 
-SSMatrix3::SSMatrix3(float e11, float e12, float e13,
-					 float e21, float e22, float e23,
-					 float e31, float e32, float e33)
-					: _11(e11), _12(e12), _13(e13),
-					  _21(e21), _22(e22), _23(e23),
-					  _31(e31), _32(e32), _33(e33){}
+SSMatrix3::SSMatrix3(
+	float e11, float e12, float e13,
+	float e21, float e22, float e23,
+	float e31, float e32, float e33)
+	:_11(e11), _12(e12), _13(e13),
+	 _21(e21), _22(e22), _23(e23),
+	 _31(e31), _32(e32), _33(e33){}
 
 SSMatrix3& SSMatrix3::SetIdentity()
 {
@@ -33,9 +34,10 @@ SSMatrix3& SSMatrix3::SetIdentity()
 
 bool SSMatrix3::IsIdentity() const
 {
-	return _11 == 1.0f && _12 == 0.0f && _13 == 0.0f &&
-		   _21 == 0.0f && _22 == 1.0f && _23 == 0.0f &&
-		   _31 == 0.0f && _32 == 0.0f && _33 == 1.0f;
+	return 
+		_11 == 1.0f && _12 == 0.0f && _13 == 0.0f &&
+		_21 == 0.0f && _22 == 1.0f && _23 == 0.0f &&
+		_31 == 0.0f && _32 == 0.0f && _33 == 1.0f;
 }
 
 SSMatrix3& SSMatrix3::Transpose()
@@ -72,9 +74,10 @@ SSMatrix3& SSMatrix3::Multiply(const SSMatrix3& m)
 
 float SSMatrix3::Determinant() const
 {
-	return (_11 * _22 * _33) - (_11 * _23 * _32) - 
-		   (_12 * _21 * _33) + (_12 * _23 * _31) + 
-		   (_13 * _21 * _32) - (_13 * _22 * _31);
+	return 
+		(_11 * _22 * _33) - (_11 * _23 * _32) - 
+		(_12 * _21 * _33) + (_12 * _23 * _31) + 
+		(_13 * _21 * _32) - (_13 * _22 * _31);
 }
 
 SSMatrix3 SSMatrix3::InverseMatrix(bool* r, float* d) const
@@ -127,7 +130,8 @@ SSMatrix3 SSMatrix3::TransposeMatrix() const
 
 bool SSMatrix3::operator==(const SSMatrix3& m) const
 {
-	return this->val[0x0] == m.val[0x0] &&
+	return 
+		this->val[0x0] == m.val[0x0] &&
 		this->val[0x1] == m.val[0x1] &&
 		this->val[0x2] == m.val[0x2] &&
 		this->val[0x3] == m.val[0x3] &&
@@ -140,7 +144,8 @@ bool SSMatrix3::operator==(const SSMatrix3& m) const
 
 bool SSMatrix3::operator!=(const SSMatrix3& m) const
 {
-	return this->val[0x0] != m.val[0x0] ||
+	return 
+		this->val[0x0] != m.val[0x0] ||
 		this->val[0x1] != m.val[0x1] ||
 		this->val[0x2] != m.val[0x2] ||
 		this->val[0x3] != m.val[0x3] ||

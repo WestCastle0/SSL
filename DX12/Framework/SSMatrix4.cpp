@@ -289,7 +289,7 @@ SSMatrix4 SSMatrix4::operator*(float f) const
 	return n;
 }
 
-SSMatrix4 SSFramework::SSMatrix4::operator/(float f) const
+SSMatrix4 SSMatrix4::operator/(float f) const
 {
 	float inv = 1.0f / f;
 	SSMatrix4 n;

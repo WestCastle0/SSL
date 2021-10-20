@@ -216,7 +216,7 @@ SSMatrix3 SSMatrix3::operator*(float f) const
 	return n;
 }
 
-SSMatrix3 SSFramework::SSMatrix3::operator/(float f) const
+SSMatrix3 SSMatrix3::operator/(float f) const
 {
 	float inv = 1.0f / f;
 	SSMatrix3 n;

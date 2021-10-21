@@ -34,9 +34,8 @@ namespace SSFramework
 
 		SSLinearTransform2 operator * (const SSLinearTransform2& lt) const;
 		SSLinearTransform2& operator *= (const SSLinearTransform2& lt);
-		//friend SSVector2 operator * (const SSVector2& v, const SSLinearTransform2& lt);
-		//friend SSVector2& operator *= (SSVector2& v, const SSLinearTransform2& lt);
-		//// why not?
+		friend SSVector2 operator * (const SSVector2& v, const SSLinearTransform2& lt);
+		friend SSVector2& operator *= (SSVector2& v, const SSLinearTransform2& lt);
 
 		bool operator == (const SSLinearTransform2& lt) const;
 		bool operator != (const SSLinearTransform2& lt) const;

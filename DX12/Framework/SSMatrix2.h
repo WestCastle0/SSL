@@ -63,5 +63,17 @@ namespace SSFramework
 			float val[4];
 ;		};
 	};
+
+	inline SSMatrix2 operator*(float f, const SSMatrix2& m)
+	{
+		return SSMatrix2(f * m._11, f * m._12, f * m._21, f * m._22);
+	}
+
+	inline SSMatrix2 operator/(float f, const SSMatrix2& m)
+	{
+		float inv = 1.0f / f;
+		return SSMatrix2(inv * m._11, inv * m._12, inv * m._21, inv * m._22);
+	}
+
 }
 #pragma pack(pop)

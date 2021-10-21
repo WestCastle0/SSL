@@ -294,37 +294,6 @@ SSMatrix3& SSMatrix3::operator/=(float f)
 	return *this;
 }
 
-SSMatrix3 SSFramework::operator*(float f, const SSMatrix3& m)
-{
-	SSMatrix3 n;
-	n.val[0x0] = f * m.val[0x0];
-	n.val[0x1] = f * m.val[0x1];
-	n.val[0x2] = f * m.val[0x2];
-	n.val[0x3] = f * m.val[0x3];
-	n.val[0x4] = f * m.val[0x4];
-	n.val[0x5] = f * m.val[0x5];
-	n.val[0x6] = f * m.val[0x6];
-	n.val[0x7] = f * m.val[0x7];
-	n.val[0x8] = f * m.val[0x8];
-	return n;
-}
-
-SSMatrix3 SSFramework::operator/(float f, const SSMatrix3& m)
-{
-	SSMatrix3 n;
-	float inv = 1.0f / f;
-	n.val[0x0] = inv * m.val[0x0];
-	n.val[0x1] = inv * m.val[0x1];
-	n.val[0x2] = inv * m.val[0x2];
-	n.val[0x3] = inv * m.val[0x3];
-	n.val[0x4] = inv * m.val[0x4];
-	n.val[0x5] = inv * m.val[0x5];
-	n.val[0x6] = inv * m.val[0x6];
-	n.val[0x7] = inv * m.val[0x7];
-	n.val[0x8] = inv * m.val[0x8];
-	return n;
-}
-
 SSVector3 SSMatrix3::Row1() const
 {
 	return SSVector3(_11, _12, _13);

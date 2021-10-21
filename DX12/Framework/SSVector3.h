@@ -49,5 +49,17 @@ namespace SSFramework
 			float val[3];
 		};
 	};
+
+	inline SSVector3 SSFramework::operator*(float f, const SSVector3& v)
+	{
+		return SSVector3(f * v.x, f * v.y, f * v.z);
+	}
+
+	inline SSVector3 SSFramework::operator/(float f, const SSVector3& v)
+	{
+		float inv = 1.0f / f;
+		return SSVector3(inv * v.x, inv * v.y, inv * v.z);
+	}
+
 }
 #pragma pack(pop)

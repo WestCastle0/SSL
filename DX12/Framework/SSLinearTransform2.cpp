@@ -1,4 +1,4 @@
-#include "SSMath.h"
+﻿#include "SSMath.h"
 #include "SSLinearTransform2.h"
 
 using namespace SSFramework;
@@ -147,18 +147,6 @@ SSLinearTransform2& SSLinearTransform2::operator*=(const SSLinearTransform2& lt)
 	matrix2 *= lt.matrix2;
 	return *this;
 }
-
-//SSVector2 SSFramework::operator*(const SSVector2& v, const SSLinearTransform2& lt)
-//{
-//	return v * lt.Matrix2();
-//	// TODO : test required
-//}
-//
-//SSVector2& SSFramework::operator*=(SSVector2& v, const SSLinearTransform2& lt)
-//{
-//	v *= lt.Matrix2();
-//	return v;
-//}
 
 bool SSLinearTransform2::operator==(const SSLinearTransform2& lt) const
 {

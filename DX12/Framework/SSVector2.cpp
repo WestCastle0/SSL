@@ -104,17 +104,6 @@ SSVector2 SSVector2::operator*(const SSVector2& v) const
 	return SSVector2(x * v.x, y * v.y);
 }
 
-SSVector2 SSFramework::operator*(float f, const SSVector2& v)
-{
-	return SSVector2(f * v.x, f * v.y);
-}
-
-SSVector2 SSFramework::operator/(float f, const SSVector2& v)
-{
-	float inv = 1.0f / f;
-	return SSVector2(inv * v.x, inv * v.y);
-}
-
 SSVector2& SSVector2::operator+=(const SSVector2& v)
 {
 	x += v.x;

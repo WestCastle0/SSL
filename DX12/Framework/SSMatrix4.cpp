@@ -402,51 +402,6 @@ SSMatrix4& SSMatrix4::operator/=(float f)
 	return *this;
 }
 
-SSMatrix4 SSFramework::operator*(float f, const SSMatrix4& m)
-{
-	SSMatrix4 n;
-	n.val[0x0] = f * m.val[0x0];
-	n.val[0x1] = f * m.val[0x1];
-	n.val[0x2] = f * m.val[0x2];
-	n.val[0x3] = f * m.val[0x3];
-	n.val[0x4] = f * m.val[0x4];
-	n.val[0x5] = f * m.val[0x5];
-	n.val[0x6] = f * m.val[0x6];
-	n.val[0x7] = f * m.val[0x7];
-	n.val[0x8] = f * m.val[0x8];
-	n.val[0x9] = f * m.val[0x9];
-	n.val[0xa] = f * m.val[0xa];
-	n.val[0xb] = f * m.val[0xb];
-	n.val[0xc] = f * m.val[0xc];
-	n.val[0xd] = f * m.val[0xd];
-	n.val[0xe] = f * m.val[0xe];
-	n.val[0xf] = f * m.val[0xf];
-	return n;
-}
-
-SSMatrix4 SSFramework::operator/(float f, const SSMatrix4& m)
-{
-	SSMatrix4 n;
-	float inv = 1.0f / f;
-	n.val[0x0] = inv * m.val[0x0];
-	n.val[0x1] = inv * m.val[0x1];
-	n.val[0x2] = inv * m.val[0x2];
-	n.val[0x3] = inv * m.val[0x3];
-	n.val[0x4] = inv * m.val[0x4];
-	n.val[0x5] = inv * m.val[0x5];
-	n.val[0x6] = inv * m.val[0x6];
-	n.val[0x7] = inv * m.val[0x7];
-	n.val[0x8] = inv * m.val[0x8];
-	n.val[0x9] = inv * m.val[0x9];
-	n.val[0xa] = inv * m.val[0xa];
-	n.val[0xb] = inv * m.val[0xb];
-	n.val[0xc] = inv * m.val[0xc];
-	n.val[0xd] = inv * m.val[0xd];
-	n.val[0xe] = inv * m.val[0xe];
-	n.val[0xf] = inv * m.val[0xf];
-	return n;
-}
-
 SSVector4 SSMatrix4::Row1() const
 {
 	return SSVector4(_11, _12, _13, _14);

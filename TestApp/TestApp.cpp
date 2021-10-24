@@ -1,61 +1,61 @@
-﻿#include <windows.h> // for XMVerifyCPUSupport
-#include <DirectXMath.h>
-#include <DirectXPackedVector.h>
-#include <iostream>
-
-#include "Framework/SSMath.h"
-#include "Framework/SSVector2.h"
-#include "Framework/SSVector3.h"
-
-using namespace SSFramework;
-
-using namespace std;
-using namespace DirectX;
-using namespace DirectX::PackedVector;
-
-// Overload the  "<<" operators so that we can use cout to 
-// output XMVECTOR objects.
-ostream& XM_CALLCONV operator << (ostream& os, SSVector2 v)
-{
-    os << "(" << v.x << ", " << v.y << ")";
-    return os;
-}
-
-int main()
-{
-    SSVector2 u = SSVector2(1.0f, 2.0f);
-    SSVector2 w = SSVector2(0.707f, 0.707f);
-    SSVector2 v = SSVector2(-2.0f, 1.0f);
-    SSVector2 n = SSVector2(1.0f, 0.0f);
-
-    SSVector2 a = u + v;
-
-    SSVector2 b = u - v;
-
-    SSVector2 c = 10.0f * u;
-
-
-    cout << "u                   = " << u << endl;
-    cout << "v                   = " << v << endl;
-    cout << "w                   = " << w << endl;
-    cout << "n                   = " << n << endl;
-    cout << "a = u + v           = " << a << endl;
-    cout << "b = u - v           = " << b << endl;
-    cout << "c = 10 * u          = " << c << endl;
-
-    // s = u dot v
-    float s = SSVector2::Dot(u, v);
-    cout << "s = u.v             = " << s << endl;
-    // d = u / ||u||
-    u.Normalize();
-    cout << "d = u / ||u||       = " << u << endl;
-    // e = u x v
-    SSVector2 e = SSVector2::Cross(u);
-    cout << "e = u x v           = " << e << endl;
-    // ||u||
-    float L = u.Length();
-    cout << "L  = ||u||          = " << L << endl;
-}
+//#include <windows.h> // for XMVerifyCPUSupport
+//#include <DirectXMath.h>
+//#include <DirectXPackedVector.h>
+//#include <iostream>
+//
+//#include "Framework/SSMath.h"
+//#include "Framework/SSVector2.h"
+//#include "Framework/SSVector3.h"
+//
+//using namespace SSFramework;
+//
+//using namespace std;
+//using namespace DirectX;
+//using namespace DirectX::PackedVector;
+//
+//// Overload the  "<<" operators so that we can use cout to 
+//// output XMVECTOR objects.
+//ostream& XM_CALLCONV operator << (ostream& os, SSVector2 v)
+//{
+//    os << "(" << v.x << ", " << v.y << ")";
+//    return os;
+//}
+//
+//int main()
+//{
+//    SSVector2 u = SSVector2(1.0f, 2.0f);
+//    SSVector2 w = SSVector2(0.707f, 0.707f);
+//    SSVector2 v = SSVector2(-2.0f, 1.0f);
+//    SSVector2 n = SSVector2(1.0f, 0.0f);
+//
+//    SSVector2 a = u + v;
+//
+//    SSVector2 b = u - v;
+//
+//    SSVector2 c = 10.0f * u;
+//
+//
+//    cout << "u                   = " << u << endl;
+//    cout << "v                   = " << v << endl;
+//    cout << "w                   = " << w << endl;
+//    cout << "n                   = " << n << endl;
+//    cout << "a = u + v           = " << a << endl;
+//    cout << "b = u - v           = " << b << endl;
+//    cout << "c = 10 * u          = " << c << endl;
+//
+//    // s = u dot v
+//    float s = SSVector2::Dot(u, v);
+//    cout << "s = u.v             = " << s << endl;
+//    // d = u / ||u||
+//    u.Normalize();
+//    cout << "d = u / ||u||       = " << u << endl;
+//    // e = u x v
+//    SSVector2 e = SSVector2::Cross(u);
+//    cout << "e = u x v           = " << e << endl;
+//    // ||u||
+//    float L = u.Length();
+//    cout << "L  = ||u||          = " << L << endl;
+//}
 
 //int main()
 //{

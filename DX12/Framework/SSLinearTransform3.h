@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../SSInclude.h"
 #include "SSVector3.h"
 #include "SSMatrix3.h"

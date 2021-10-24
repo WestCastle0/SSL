@@ -1,4 +1,4 @@
-﻿#include "SSMath.h"
+#include "SSMath.h"
 #include "SSLinearTransform3.h"
 
 using namespace SSFramework;

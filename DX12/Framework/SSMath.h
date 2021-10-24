@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <math.h>
 
 const float SS_PI = 3.141592654f;

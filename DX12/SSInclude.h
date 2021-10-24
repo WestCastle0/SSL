@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #ifdef SSL_DYNAMIC
 #	ifndef SSL_API

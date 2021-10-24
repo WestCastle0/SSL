@@ -1,4 +1,4 @@
-﻿#include "SSAffineTransform2.h"
+#include "SSAffineTransform2.h"
 
 using namespace SSFramework;
 

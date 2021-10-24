@@ -15,7 +15,7 @@ namespace SSFramework
 
 		static SSVector2 Normalized(const SSVector2& v);
 		static float Dot(const SSVector2& v1, const SSVector2& v2);
-		static SSVector2 Cross(const SSVector2& v);	//2D ¿ØªÁø‹¿˚.
+		static SSVector2 Cross(const SSVector2& v);	//2D Ïú†ÏÇ¨Ïô∏Ï†Å.
 		static const SSVector2 zero;
 
 		SSVector2& Transform(const SSMatrix2& m);

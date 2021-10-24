@@ -1,4 +1,4 @@
-#include "SSMath.h"
+﻿#include "SSMath.h"
 #include "SSVector2.h"
 #include "SSMatrix2.h"
 #include "SSMatrix3.h"

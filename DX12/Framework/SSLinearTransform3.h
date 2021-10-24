@@ -1,4 +1,5 @@
 #pragma once
+#include "../SSInclude.h"
 #include "SSVector3.h"
 #include "SSMatrix3.h"
 #include "SSMatrix4.h"
@@ -38,7 +39,7 @@ namespace SSFramework
 		SSLinearTransform3 operator * (const SSLinearTransform3& lt) const;
 		SSLinearTransform3& operator *= (const SSLinearTransform3& lt);
 		friend SSVector3 operator * (const SSVector3& v, const SSLinearTransform3& lt);
-		friend SSVector3& operator *= (const SSVector3& v, const SSLinearTransform3& lt);
+		friend SSVector3& operator *= (SSVector3& v, const SSLinearTransform3& lt);
 
 		bool operator == (const SSLinearTransform3& lt) const;
 		bool operator != (const SSLinearTransform3& lt) const;
@@ -52,10 +53,14 @@ namespace SSFramework
 
 		SSMatrix3 matrix3;
 	};
+
 	inline SSVector3 operator * (const SSVector3& v, const SSLinearTransform3& lt)
 	{
 		return v * lt.Matrix3();
+
+		return v;
 	}
+
 	inline SSVector3& operator *= (SSVector3& v, const SSLinearTransform3& lt)
 	{
 		v *= lt.Matrix3();

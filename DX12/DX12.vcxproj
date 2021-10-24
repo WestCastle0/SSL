@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\SSAffineTransform2.cpp" />
+    <ClCompile Include="Framework\SSAffineTransform3.cpp" />
     <ClCompile Include="Framework\SSLinearTransform2.cpp" />
     <ClCompile Include="Framework\SSLinearTransform3.cpp" />
     <ClCompile Include="Framework\SSMatrix2.cpp" />
@@ -30,6 +32,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Foundation\SSObject.h" />
+    <ClInclude Include="Framework\SSAffineTransform2.h" />
+    <ClInclude Include="Framework\SSAffineTransform3.h" />
     <ClInclude Include="Framework\SSLinearTransform2.h" />
     <ClInclude Include="Framework\SSLinearTransform3.h" />
     <ClInclude Include="Framework\SSMath.h" />

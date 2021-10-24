@@ -1,5 +1,7 @@
 #include "SSMath.h"
 #include "SSVector2.h"
+#include "SSMatrix2.h"
+#include "SSMatrix3.h"
 
 using namespace SSFramework;
 
@@ -45,6 +47,27 @@ float SSVector2::LengthSq() const
 bool SSVector2::IsZero() const
 {
 	return x == 0.0f && y == 0.0f;
+}
+
+SSVector2& SSVector2::Transform(const SSMatrix2& m)
+{
+	SSVector2 v(x, y);
+	this->x = (v.x * m._11) + (v.y * m._21);
+	this->y = (v.x * m._12) + (v.y * m._22);
+	return *this;
+}
+
+SSVector2& SSVector2::Transform(const SSMatrix3& m)
+{
+	SSVector2 v(x, y);
+	this->x = (v.x * m._11) + (v.y * m._21);
+	this->y = (v.x * m._12) + (v.y * m._22);
+	float w = 1.0f / ((v.x * m._13) + (v.y * m._23) + m._33);
+
+	this->x *= w;
+	this->y *= w;
+	return *this;
+
 }
 
 void SSVector2::Normalize()
@@ -104,6 +127,16 @@ SSVector2 SSVector2::operator*(const SSVector2& v) const
 	return SSVector2(x * v.x, y * v.y);
 }
 
+SSVector2 SSVector2::operator*(const SSMatrix2& m) const
+{
+	return SSVector2(x, y).Transform(m);
+}
+
+SSVector2 SSVector2::operator*(const SSMatrix3& m) const
+{
+	return SSVector2(x, y).Transform(m);
+}
+
 SSVector2& SSVector2::operator+=(const SSVector2& v)
 {
 	x += v.x;
@@ -145,4 +178,14 @@ SSVector2& SSVector2::operator*=(const SSVector2& v)
 	x *= v.x;
 	y *= v.y;
 	return *this;
+}
+
+SSVector2& SSVector2::operator*=(const SSMatrix2& m)
+{
+	return Transform(m);
+}
+
+SSVector2& SSVector2::operator*=(const SSMatrix3& m)
+{
+	return Transform(m);
 }

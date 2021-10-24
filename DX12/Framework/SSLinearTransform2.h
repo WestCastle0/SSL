@@ -1,4 +1,5 @@
 #pragma once
+#include "../SSInclude.h"
 #include "SSVector2.h"
 #include "SSMatrix2.h"
 #include "SSMatrix3.h"
@@ -45,10 +46,12 @@ namespace SSFramework
 
 		SSMatrix2 matrix2;
 	};
+
 	inline SSVector2 operator * (const SSVector2& v, const SSLinearTransform2& lt)
 	{
 		return v * lt.Matrix2();
 	}
+
 	inline SSVector2& operator *= (SSVector2& v, const SSLinearTransform2& lt)
 	{
 		v *= lt.Matrix2();

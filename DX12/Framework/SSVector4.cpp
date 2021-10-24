@@ -1,5 +1,6 @@
 #include "SSMath.h"
 #include "SSVector4.h"
+#include "SSMatrix4.h"
 
 using namespace SSFramework;
 
@@ -42,6 +43,16 @@ float SSVector4::LengthSq() const
 bool SSVector4::IsZero() const
 {
 	return x == 0.0f && y == 0.0f && z == 0.0f && w == 0.0f;
+}
+
+SSVector4& SSVector4::Transform(const SSMatrix4& m)
+{
+	SSVector4 v(x, y, z, w);
+	this->x = (v.x * m._11) + (v.y * m._21) + (v.z * m._31) + (v.w * m._41);
+	this->y = (v.x * m._12) + (v.y * m._22) + (v.z * m._32) + (v.w * m._42);
+	this->z = (v.x * m._13) + (v.y * m._23) + (v.z * m._33) + (v.w * m._43);
+	this->w = (v.x * m._14) + (v.y * m._24) + (v.z * m._34) + (v.w * m._44);
+	return *this;
 }
 
 void SSVector4::Normalize()
@@ -103,6 +114,11 @@ SSVector4 SSVector4::operator*(const SSVector4& v) const
 	return SSVector4(x * v.x, y * v.y, z * v.z, w * v.w);
 }
 
+SSVector4 SSVector4::operator*(const SSMatrix4& m) const
+{
+	return SSVector4(*this).Transform(m);
+}
+
 SSVector4& SSVector4::operator+=(const SSVector4& v)
 {
 	x += v.x;
@@ -156,4 +172,9 @@ SSVector4& SSVector4::operator*=(const SSVector4& v)
 	z *= v.z;
 	w *= v.w;
 	return *this;
+}
+
+SSVector4& SSVector4::operator*=(const SSMatrix4& m)
+{
+	return Transform(m);
 }

@@ -1,7 +1,7 @@
-﻿#include "SSMath.h"
 #include "SSVector2.h"
 #include "SSMatrix2.h"
 #include "SSMatrix3.h"
+#include "SSMath.h"
 
 using namespace SSFramework;
 

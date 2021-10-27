@@ -184,28 +184,28 @@ TEST(Vector, LengthSq)
     body(SSVector4());
 }
 
-//TEST(Vector, Normalize)
-//{
-//    auto body = [](auto v)
-//    {
-//        using V = decltype(v);
-//        v = RendomObjectWithValues<V>();
-//        V r = v;
-//
-//        float lenSq = v.LengthSq();
-//        if (lenSq > 0.0f)
-//        {
-//            float lenInv = 1.0f / sqrt(lenSq);
-//            int vSize = sizeof(v.val) / sizeof(v.val[0]);
-//            for (int i = 0; i < vSize; ++i)
-//            {
-//                r.val[i] *= lenInv;
-//            }
-//        }
-//
-//        EXPECT_EQ(r, v.Normalize());
-//    };
-//    body(SSVector2());
-//    body(SSVector3());
-//    body(SSVector4());
-//}
+TEST(Vector, Normalize)
+{
+    auto body = [](auto v)
+    {
+        using V = decltype(v);
+        v = RendomObjectWithValues<V>();
+        V r = v;
+
+        float lenSq = v.LengthSq();
+        if (lenSq > 0.0f)
+        {
+            float lenInv = 1.0f / sqrt(lenSq);
+            int vSize = sizeof(v.val) / sizeof(v.val[0]);
+            for (int i = 0; i < vSize; ++i)
+            {
+                r.val[i] *= lenInv;
+            }
+        }
+
+        EXPECT_EQ(r, V::Normalized(v));
+    };
+    body(SSVector2());
+    body(SSVector3());
+    body(SSVector4());
+}

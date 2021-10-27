@@ -1,6 +1,6 @@
-﻿#include "SSMath.h"
 #include "SSVector4.h"
 #include "SSMatrix4.h"
+#include "SSMath.h"
 
 using namespace SSFramework;
 

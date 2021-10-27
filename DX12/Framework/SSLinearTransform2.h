@@ -1,12 +1,12 @@
-﻿#pragma once
+#pragma once
 #include "../SSInclude.h"
-#include "SSVector2.h"
 #include "SSMatrix2.h"
-#include "SSMatrix3.h"
+#include "SSVector2.h"
 
 #pragma pack(push, 4)
 namespace SSFramework
 {
+	class SSMatrix3;
 	class SSL_API SSLinearTransform2
 	{
 	public:

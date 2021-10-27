@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #pragma pack(push, 4)
 
 #include "../SSInclude.h"

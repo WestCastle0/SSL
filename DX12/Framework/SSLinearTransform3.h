@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "../SSInclude.h"
 #include "SSVector3.h"
 #include "SSMatrix3.h"
@@ -45,7 +45,7 @@ namespace SSFramework
 		bool operator != (const SSLinearTransform3& lt) const;
 
 		//bool Decompose(SSVector3& scale, SSQuaternion& rotate) const;
-		//SSuaternion Rotation() const;
+		//SSQuaternion Rotation() const;
 		//// not implemented yet..
 
 		SSMatrix3& Matrix3() { return matrix3; }

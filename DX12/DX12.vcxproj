@@ -21,28 +21,35 @@
   <ItemGroup>
     <ClCompile Include="Framework\SSAffineTransform2.cpp" />
     <ClCompile Include="Framework\SSAffineTransform3.cpp" />
+    <ClCompile Include="Framework\SSApplication.cpp" />
     <ClCompile Include="Framework\SSLinearTransform2.cpp" />
     <ClCompile Include="Framework\SSLinearTransform3.cpp" />
     <ClCompile Include="Framework\SSMatrix2.cpp" />
     <ClCompile Include="Framework\SSMatrix3.cpp" />
     <ClCompile Include="Framework\SSMatrix4.cpp" />
+    <ClCompile Include="Framework\SSTimper.cpp" />
     <ClCompile Include="Framework\SSVector2.cpp" />
     <ClCompile Include="Framework\SSVector3.cpp" />
     <ClCompile Include="Framework\SSVector4.cpp" />
+    <ClCompile Include="Framework\SSWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Foundation\SSObject.h" />
+    <ClInclude Include="Framework\Private\Direct3D12\d3dx12.h" />
     <ClInclude Include="Framework\SSAffineTransform2.h" />
     <ClInclude Include="Framework\SSAffineTransform3.h" />
+    <ClInclude Include="Framework\SSApplication.h" />
     <ClInclude Include="Framework\SSLinearTransform2.h" />
     <ClInclude Include="Framework\SSLinearTransform3.h" />
     <ClInclude Include="Framework\SSMath.h" />
     <ClInclude Include="Framework\SSMatrix2.h" />
     <ClInclude Include="Framework\SSMatrix3.h" />
     <ClInclude Include="Framework\SSMatrix4.h" />
+    <ClInclude Include="Framework\SSTimer.h" />
     <ClInclude Include="Framework\SSVector2.h" />
     <ClInclude Include="Framework\SSVector3.h" />
     <ClInclude Include="Framework\SSVector4.h" />
+    <ClInclude Include="Framework\SSWindow.h" />
     <ClInclude Include="SSFoundation.h" />
     <ClInclude Include="SSFramework.h" />
     <ClInclude Include="SSInclude.h" />
@@ -115,7 +122,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)\Framework;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\Framework;$(IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -186,6 +193,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

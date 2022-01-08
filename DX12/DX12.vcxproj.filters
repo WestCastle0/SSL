@@ -56,16 +56,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\SSMath.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\SSVector2.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\SSVector3.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\SSVector4.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="SSFoundation.h">
@@ -111,6 +102,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Private\Direct3D12\d3dx12.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SSMath.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SSVector2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SSVector4.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

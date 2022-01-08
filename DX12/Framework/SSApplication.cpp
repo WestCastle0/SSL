@@ -195,10 +195,9 @@ void D3DApp::OnResize()
 	optClear.Format = mDepthStencilFormat;
 	optClear.DepthStencil.Depth = 1.0f;
 	optClear.DepthStencil.Stencil = 0;
+	auto properties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
 	ThrowIfFailed(md3dDevice->CreateCommittedResource(
-		nullptr,
-		////!!!!!!!!!!!!!!!!!!@@@@@!!!!!!!!!!!!!!!!!!!!
-		//&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT),
+		&properties,
 		D3D12_HEAP_FLAG_NONE,
 		&depthStencilDesc,
 		D3D12_RESOURCE_STATE_COMMON,
@@ -214,11 +213,9 @@ void D3DApp::OnResize()
 	md3dDevice->CreateDepthStencilView(mDepthStencilBuffer.Get(), &dsvDesc, DepthStencilView());
 
 	// Transition the resource from its initial state to be used as a depth buffer.
-	mCommandList->ResourceBarrier(1,
-		nullptr);
-		////!!!!!!!!!!!!!!!!!!@@@@@!!!!!!!!!!!!!!!!!!!!
-		//&CD3DX12_RESOURCE_BARRIER::Transition(mDepthStencilBuffer.Get(),
-		//D3D12_RESOURCE_STATE_COMMON, D3D12_RESOURCE_STATE_DEPTH_WRITE));
+	auto transition1 = CD3DX12_RESOURCE_BARRIER::Transition(mDepthStencilBuffer.Get(),
+		D3D12_RESOURCE_STATE_COMMON, D3D12_RESOURCE_STATE_DEPTH_WRITE);
+	mCommandList->ResourceBarrier(1, &transition1);
 
 	// Execute the resize commands.
 	ThrowIfFailed(mCommandList->Close());
@@ -402,7 +399,7 @@ bool D3DApp::InitMainWindow()
 	int width = R.right - R.left;
 	int height = R.bottom - R.top;
 
-	mhMainWnd = CreateWindowW(L"MainWnd", mMainWndCaption,
+	mhMainWnd = CreateWindowW(L"MainWnd", L"123",//mMainWndCaption.c_str(),
 		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, mhAppInst, 0);
 	if (!mhMainWnd)
 	{

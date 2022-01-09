@@ -8,7 +8,7 @@
 using Microsoft::WRL::ComPtr;
 using namespace std;
 
-LRESULT CALLBACK
+LRESULT CALLBACK 
 MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	// Forward hwnd on because we can get messages (e.g., WM_CREATE)
@@ -370,7 +370,7 @@ LRESULT D3DApp::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		return 0;
 	}
 
-	return DefWindowProc(hwnd, msg, wParam, lParam);
+	return DefWindowProcW(hwnd, msg, wParam, lParam);
 }
 
 bool D3DApp::InitMainWindow()
@@ -399,7 +399,7 @@ bool D3DApp::InitMainWindow()
 	int width = R.right - R.left;
 	int height = R.bottom - R.top;
 
-	mhMainWnd = CreateWindowW(L"MainWnd", L"123",//mMainWndCaption.c_str(),
+	mhMainWnd = CreateWindowW(L"MainWnd", mMainWndCaption.c_str(),
 		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, mhAppInst, 0);
 	if (!mhMainWnd)
 	{

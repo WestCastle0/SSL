@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #pragma pack(push, 4)
 
 #include "../SSInclude.h"
@@ -73,7 +73,7 @@ namespace SSFramework
 		};
 	};
 
-	inline SSMatrix4 SSFramework::operator*(float f, const SSMatrix4& m)
+	inline SSMatrix4 operator*(float f, const SSMatrix4& m)
 	{
 		SSMatrix4 n;
 		n.val[0x0] = f * m.val[0x0];
@@ -95,7 +95,7 @@ namespace SSFramework
 		return n;
 	}
 
-	inline SSMatrix4 SSFramework::operator/(float f, const SSMatrix4& m)
+	inline SSMatrix4 operator/(float f, const SSMatrix4& m)
 	{
 		SSMatrix4 n;
 		float inv = 1.0f / f;

@@ -10,12 +10,12 @@
 #endif
 
 #include <windows.h>
+#include "Private/Direct3D12/d3dx12.h"
 #include <wrl.h>
 #include <d3d12.h>
 #include <dxgi1_4.h>
 #include <system_error>
 #include <assert.h>
-#include "Private/Direct3D12/d3dx12.h"
 #include "SSTimer.h"
 
 class D3DApp

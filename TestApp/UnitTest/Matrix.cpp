@@ -1,4 +1,4 @@
-﻿#include <algorithm>
+#include <algorithm>
 #include "gtest/gtest.h"
 #include "Helper.h"
 #include "SSMatrix2.h"
